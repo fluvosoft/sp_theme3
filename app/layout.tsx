@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Bengali, Plus_Jakarta_Sans } from "next/font/google";
+import { Noto_Sans_Bengali, Noto_Serif_Bengali, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-english",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 const notoSansBengali = Noto_Sans_Bengali({
   variable: "--font-bengali",
@@ -9,16 +16,16 @@ const notoSansBengali = Noto_Sans_Bengali({
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+const notoSerifBengali = Noto_Serif_Bengali({
+  variable: "--font-heading-bengali",
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Saffron Goat Milk Soap | বাংলাদেশের সবচেয়ে জনপ্রিয় সাবান",
-  description: "Saffron Goat Milk Soap – মাত্র ৭ দিনে ত্বক হবে স্পটলেস, দুধের মতো ফর্সা। অর্ডার করুন এখনই।",
+  title: "সম্পূর্ণ আফসান প্রিন্ট আনস্টিজ ৩ পিস | Unstitched 3 Piece",
+  description: "সম্পূর্ণ আফসান প্রিন্ট করা আনস্টিজ ৩ পিস — আজকের অফার মূল্য ১১০০ টাকা। অর্ডার করতে নিচের ফর্মটি পূরণ করুন।",
 };
 
 export default function RootLayout({
@@ -27,8 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" className={`${notoSansBengali.variable} ${plusJakartaSans.variable}`}>
-      <body className="font-body antialiased">
+    <html
+      lang="bn"
+      className={`${plusJakartaSans.variable} ${notoSansBengali.variable} ${notoSerifBengali.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="font-body antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -11,7 +11,7 @@ export default function CtaButton({ children, href = "#order", className = "" }:
   return (
     <a
       href={href}
-      className={`font-heading inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${className}`}
+      className={`font-heading inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white shadow-[var(--shadow)] transition-all hover:opacity-95 hover:shadow-[var(--shadow-lg)] active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-offset-2 ${className}`}
       style={{ backgroundColor: THEME.pinkBright }}
     >
       {children}

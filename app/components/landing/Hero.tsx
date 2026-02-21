@@ -1,33 +1,63 @@
-import { THEME, CTA_LABEL } from "../../lib/constants";
+import { THEME, CTA_LABEL, PRODUCT_TITLE, ORDER_UNIT_PRICE_BDT } from "../../lib/constants";
 import CtaButton from "../ui/CtaButton";
+import { CartIcon } from "../ui/Icons";
+
+const HERO_DESCRIPTION = `
+কোয়ালিটি ম্যানুফ্যাকচারিং এবং ইসলাম অনুযায়ী প্রোডাক্ট তৈরি করা হয়। ড্রেস, পাজামা ও ডুপাট্টা — সব কটন সুতি ফেব্রিক। ডুপাট্টা ও পাজামা কটন সুতি।
+`.trim();
 
 export default function Hero() {
   return (
-    <section className="px-4 py-12 md:px-8 md:py-16 lg:py-20">
+    <section className="bg-white px-4 py-10 md:px-8 md:py-14 lg:py-16">
       <div className="mx-auto max-w-4xl">
-        <p className="font-heading mb-3 text-center text-sm font-semibold uppercase tracking-widest text-white/80">
-          Bangladesh&apos;s Favourite
-        </p>
-        <h1 className="font-heading text-center text-2xl font-bold leading-snug tracking-tight md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-          <span className="font-extrabold" style={{ color: THEME.yellow }}>
-            Saffron Goat Milk Soap
+        {/* Logo */}
+        <div className="mb-6 flex justify-center">
+          <span className="font-body text-xl font-semibold text-gray-800 md:text-2xl">
+            ▲ logoipsum
           </span>
-          <span className="mt-2 block text-white">
-            এখন বাংলাদেশের সবচেয়ে ভাইরাল সাবান — সাফরন গোট মিল্ক সোপ
-          </span>
+        </div>
+
+        {/* Main title */}
+        <h1
+          className="font-heading text-center text-xl font-bold leading-snug md:text-2xl lg:text-3xl"
+          style={{ color: THEME.pink }}
+        >
+          {PRODUCT_TITLE}
         </h1>
-        <p className="mt-4 text-center text-base text-white/90 md:text-lg">
-          প্রিমিয়াম কাশ্মীরি সাফরন ও গোট মিল্ক দিয়ে তৈরি — মাত্র ৭ দিনে দেখুন পার্থক্য
-        </p>
-        <div className="my-8 overflow-hidden rounded-2xl bg-white/10 shadow-2xl ring-1 ring-white/20 md:my-10">
-          <div className="aspect-[16/10] w-full md:aspect-video">
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/5 to-white/15">
-              <span className="font-body text-lg text-white/60">প্রোডাক্ট ইমেজ</span>
+
+        {/* Two product images side by side */}
+        <div className="mt-8 grid grid-cols-2 gap-3 md:gap-5 md:mt-10">
+          <div className="aspect-[3/4] overflow-hidden rounded-xl bg-gray-100 shadow-[var(--shadow)]">
+            <div className="flex h-full w-full items-center justify-center text-gray-400 text-sm">
+              প্রোডাক্ট ইমেজ ১
+            </div>
+          </div>
+          <div className="aspect-[3/4] overflow-hidden rounded-xl bg-gray-100 shadow-[var(--shadow)]">
+            <div className="flex h-full w-full items-center justify-center text-gray-400 text-sm">
+              প্রোডাক্ট ইমেজ ২
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
-          <CtaButton>{CTA_LABEL}</CtaButton>
+
+        {/* Description */}
+        <p className="mt-6 text-center text-[15px] leading-relaxed text-gray-700 md:text-base">
+          {HERO_DESCRIPTION}
+        </p>
+
+        {/* Price */}
+        <p
+          className="font-heading mt-4 text-center text-2xl font-bold md:text-3xl"
+          style={{ color: THEME.pink }}
+        >
+          আজকের অফার মূল্য {ORDER_UNIT_PRICE_BDT}/= টাকা
+        </p>
+
+        {/* CTA */}
+        <div className="mt-8 flex justify-center">
+          <CtaButton href={`#order`} className="inline-flex items-center gap-2">
+            <CartIcon className="h-5 w-5" />
+            {CTA_LABEL}
+          </CtaButton>
         </div>
       </div>
     </section>

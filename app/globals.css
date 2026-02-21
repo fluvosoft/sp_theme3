@@ -2,38 +2,49 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #1a1a2e;
+  --foreground-muted: #4a4a68;
   --pink-deep: #b8004d;
   --pink-bright: #e60066;
   --pink-light: #fce8f0;
+  --pink-light-soft: #fdf2f7;
   --accent-yellow: #f5c542;
+  --border: #e5e7eb;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-bengali);
+  --font-sans: var(--font-body);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Body: English (Latin) uses Plus Jakarta Sans, Bangla uses Noto Sans Bengali via fallback */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-bengali), "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-english), var(--font-bengali), "Plus Jakarta Sans", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-/* Typography: --font-heading & --font-bengali are injected by next/font */
+/* Headings: Noto Serif Bengali for Bangla elegance, fallback to body */
 .font-heading {
-  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-heading-bengali), var(--font-bengali), "Noto Serif Bengali", "Noto Sans Bengali", var(--font-english), ui-serif, serif;
+  letter-spacing: -0.02em;
 }
 
 .font-body {
-  font-family: var(--font-bengali), "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-english), var(--font-bengali), "Plus Jakarta Sans", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Focus styles for accessibility */
@@ -45,4 +56,9 @@ body {
 /* Selection */
 ::selection {
   background: rgba(230, 0, 102, 0.2);
+}
+
+/* Form inputs: professional look */
+input, textarea, select {
+  font-family: inherit;
 }
