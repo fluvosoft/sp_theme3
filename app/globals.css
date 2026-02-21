@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --pink-deep: #b8004d;
+  --pink-bright: #e60066;
+  --pink-light: #fce8f0;
+  --accent-yellow: #f5c542;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-bengali);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-bengali), "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography: --font-heading & --font-bengali are injected by next/font */
+.font-heading {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-bengali), "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--pink-bright);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(230, 0, 102, 0.2);
+}
